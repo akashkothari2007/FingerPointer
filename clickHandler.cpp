@@ -13,7 +13,7 @@ void handleClick(float accX, float accY) {
   lastAccX = accX;
   lastAccY = accY;
 
-  if ((jerkX > 0.3 || jerkY > 0.8) && !clicking && currentState == WAITING_FOR_GESTURE) {
+  if ((jerkX > 0.3 || jerkY > 0.14) && !clicking && currentState == WAITING_FOR_GESTURE) {
     clicking = true;
     currentState = CLICKING;
     timeAtClick = millis();

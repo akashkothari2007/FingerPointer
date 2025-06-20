@@ -32,14 +32,12 @@ void handleMovement(float gyroX, float gyroZ) {
 
 
   if (smoothedGyroX == 0 && smoothedGyroZ == 0) {
-    Serial.println("stopped");
     if (!stopped) {
       stillTime = millis();
       stopped = true;
     }
 
     if (millis()-stillTime >= timeForStillness && stopped) {
-      Serial.println("in here");
       if (currentState!= CLICKING) currentState = WAITING_FOR_GESTURE;
     }
   } else {

@@ -4,6 +4,7 @@
 #include "clickHandler.h"
 #include "movementHandler.h"
 #include "mouseState.h"
+#include "plotMpuData.h"
 
 BleMouse bleMouse;
 MPU6050 mpu(Wire);
@@ -35,8 +36,7 @@ void setup() {
 
 void loop() {
   mpu.update();
-  handleClick(mpu.getAccX(), mpu.getAccY());
+  handleClick(mpu.getAccX(), mpu.getAccZ());
   handleMovement(-mpu.getGyroX(), -mpu.getGyroZ());
-  Serial.println(currentState);
   delay(10); 
 }
