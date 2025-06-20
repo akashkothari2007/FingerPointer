@@ -10,7 +10,7 @@ float deadZone = 1.5;
 float movingDeadzone = 1.5;
 float pausedDeadzone = 30;
 
-float timeForStillness = 200;
+float timeForStillness = 120;
 unsigned long stillTime;
 bool stopped = false;
 
