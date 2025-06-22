@@ -10,11 +10,16 @@ float deadZone = 1.5;
 float movingDeadzone = 1.5;
 float pausedDeadzone = 30;
 
-float timeForStillness = 120;
+float timeForStillness = 100;
 unsigned long stillTime;
 bool stopped = false;
+unsigned long timeAtStillness;
+float gestureWindow = 750;
 
 void handleMovement(float gyroX, float gyroZ) {
+  Serial.print(gyroX);
+  Serial.print(" ");
+  Serial.println(gyroZ);
   smoothedGyroX = alpha * smoothedGyroX + (1 - alpha) * gyroX;
   smoothedGyroZ = alpha * smoothedGyroZ + (1 - alpha) * gyroZ;
 
@@ -34,11 +39,16 @@ void handleMovement(float gyroX, float gyroZ) {
   if (smoothedGyroX == 0 && smoothedGyroZ == 0) {
     if (!stopped) {
       stillTime = millis();
+      timeAtStillness = millis();
       stopped = true;
     }
 
     if (millis()-stillTime >= timeForStillness && stopped) {
-      if (currentState!= CLICKING) currentState = WAITING_FOR_GESTURE;
+      if (millis() - timeAtStillness < gestureWindow) {
+        if (currentState!= CLICKING) currentState = WAITING_FOR_GESTURE;
+      } else {
+        currentState = MOVING;
+      }
     }
   } else {
     currentState = MOVING;

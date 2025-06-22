@@ -36,7 +36,8 @@ void setup() {
 
 void loop() {
   mpu.update();
-  handleClick(mpu.getAccX(), mpu.getAccZ());
   handleMovement(-mpu.getGyroX(), -mpu.getGyroZ());
+  handleClick(mpu.getAccX(), mpu.getAccZ());
+  
   delay(10); 
 }
