@@ -4,13 +4,13 @@ float smoothedGyroX = 0;
 float smoothedGyroZ = 0;
 
 float alpha = 0.8;
-float gain = 0.02;
+float gain = 0.022;
 
 float deadZone = 1.5;
 float movingDeadzone = 1.5;
 float pausedDeadzone = 30;
 
-float timeForStillness = 100;
+float timeForStillness = 80;
 unsigned long stillTime;
 bool stopped = false;
 unsigned long timeAtStillness;

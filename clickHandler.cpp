@@ -3,7 +3,7 @@
 float lastAccX = 0;
 float lastAccY = 0;
 unsigned long timeAtClick;
-float clickCoolDown = 300;
+float clickCoolDown = 150;
 bool clicking = false;
 
 void handleClick(float accX, float accY) {
