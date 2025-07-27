@@ -21,6 +21,12 @@ This project uses an ESP32 and MPU6050 to create a gesture-controlled BLE mouse.
 ## Wiring Diagram
 ![Wiring Diagram](images/wiring_diagram.png)
 
+## Hardware
+![Hardware](images/Hardware.png)
+
+## Finished Product
+![Finished Product](images/Finished_Product.png)
+
 ## How to Upload
 1. Open `FingerPointer.ino` in Arduino IDE
 2. Select board: **ESP32 Dev Module**
